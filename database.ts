@@ -1,17 +1,18 @@
-import { PrismaClient } from '@prisma/client';
-
-// Inicializa o Prisma Client
-// O Prisma detecta automaticamente a variável DATABASE_URL no .env ou ambiente
-const prisma = new PrismaClient();
+import mongoose from 'mongoose';
 
 export const connectDB = async () => {
   try {
-    await prisma.$connect();
-    console.log('📦 Banco de dados conectado com sucesso!');
+    const mongoUri = process.env.MONGO_URI;
+    if (!mongoUri) {
+      throw new Error('A variável de ambiente MONGO_URI não foi definida.');
+    }
+    await mongoose.connect(mongoUri);
+    console.log('📦 Banco de dados MongoDB conectado com sucesso!');
   } catch (error) {
-    console.error('❌ Erro ao conectar ao banco de dados:', error);
+    console.error('❌ Erro ao conectar ao MongoDB:', error);
     process.exit(1);
   }
 };
 
-export default prisma;
+// Não precisamos mais exportar a instância do Prisma
+// export default prisma;
