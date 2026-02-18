@@ -1,0 +1,10 @@
+{
+  "services": {
+    "mindmenu-admin": {
+      "path": "mindmenu-admin"
+    },
+    "restaurant-service": {
+      "path": "restaurant-service"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mindmenu Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard Admin</h1>
+            <button id="logout-btn">Sair</button>
+        </header>
+
+        <!-- Cadastro de Restaurante -->
+        <div class="card">
+            <h2>Cadastrar Novo Restaurante</h2>
+            <form id="restaurant-form">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Endereço</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <input type="text" id="category" required>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <!-- Lista de Restaurantes -->
+        <div class="card">
+            <h2>Restaurantes Cadastrados</h2>
+            <table id="restaurants-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Endpoint</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas serão inseridas via JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Lista de Pedidos -->
+        <div class="card">
+            <h2>Últimos Pedidos</h2>
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>ID Pedido</th>
+                        <th>Cliente</th>
+                        <th>Restaurante ID</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas serão inseridas via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para Cardápio -->
+    <div id="menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="menu-restaurant-name">Cardápio</h2>
+            <div class="card">
+                <h3>Adicionar Prato</h3>
+                <form id="menu-form">
+                    <input type="hidden" id="menu-restaurant-id">
+                    <div class="form-group">
+                        <label for="dish-name">Nome do Prato</label>
+                        <input type="text" id="dish-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dish-price">Preço</label>
+                        <input type="number" step="0.01" id="dish-price" required>
+                    </div>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Itens do Cardápio</h3>
+                <ul id="menu-items-list">
+                    <!-- Itens serão inseridos via JS -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
